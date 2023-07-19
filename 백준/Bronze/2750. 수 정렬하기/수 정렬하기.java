@@ -1,21 +1,26 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 import java.util.Arrays;
-import java.util.Scanner;
-
+ 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();  // N 입력받기
-
-        int[] arr = new int[N];  // N개의 수를 저장할 배열 생성
-
-        for (int i = 0; i < N; i++) {
-            arr[i] = scanner.nextInt();  // 수 입력받아 배열에 저장
-        }
-
-        Arrays.sort(arr);  // 배열 정렬
-
-        for (int num : arr) {
-            System.out.println(num);  // 오름차순으로 출력
-        }
-    }
+	public static void main(String[] args) throws IOException {
+    
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int N = Integer.parseInt(br.readLine());
+		int[] arr = new int[N];
+		
+		for(int i = 0; i < N; i++) {
+			arr[i] = Integer.parseInt(br.readLine());
+		}
+ 
+		// 정렬 메소드
+		Arrays.sort(arr);
+		
+		for(int val : arr) {
+			System.out.println(val);
+		}
+ 
+	}
 }
