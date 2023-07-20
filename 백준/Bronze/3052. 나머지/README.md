@@ -24,3 +24,29 @@
 
  <p>첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.</p>
 
+ ```c
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Boj3052 {
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		HashSet<Integer> num = new HashSet<Integer>();
+		
+		for (int i = 0; i < 10; i++) {
+			num.add(scn.nextInt() % 42);
+		}
+		scn.close();
+		System.out.println(num.size());
+	}
+}
+```
+### HashSet
+HashSet 은 자바 COllection 중 Set의 파생 클래스이다 여기서 효과적인 점은
+1. 중복되는 원소를 넣을 경우 false를 반환한다 중복허용 x
+2. HashSet 은 순서 개념이 없다. 정렬을 하고 싶으면 List 로 변 후 정렬해야함
+
+문제에서 서로 다른 나머지를 세야 하기 때문에 HashSet 에 숫자를 집어넣은 다음
+size 를 반환하기만 하면 된
+
+
