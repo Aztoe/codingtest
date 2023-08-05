@@ -1,29 +1,14 @@
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.*;
 
 class Solution {
     public int[] solution(int l, int r) {
-        List<Integer> list = new ArrayList<>();
-        for (int i = l; i <= r; i++) {
-            String str = i +"";
-            int count = 0;
-            for (int j = 0; j < str.length(); j++) {
-                if(str.charAt(j)== 48 || str.charAt(j)  == 53) {
-                    count ++;
-                }
-                
-            }
-            if(count == str.length()) {
-                list.add(i);
-            }
-        }
-        int[] answer = list.stream().mapToInt(i->i).toArray();
-        int[] empty = {-1};
-        if(answer.length == 0) return empty;
-
-
-        return answer;
+        List<Integer> filtered = IntStream.rangeClosed(l, r)
+                .filter(num -> String.valueOf(num).chars().allMatch(ch -> ch == '0' || ch == '5'))
+                .boxed()
+                .collect(Collectors.toList());
+        return filtered.isEmpty() ? new int[] {-1} : filtered.stream().mapToInt(Integer::intValue).toArray();
     }
 }
