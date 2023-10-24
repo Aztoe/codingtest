@@ -13,7 +13,7 @@ class Solution {
 
     }
 
-    public long solution(long N, long K) {
+    public int solution(int N, int K) {
 
 
         if (N == 0) {
