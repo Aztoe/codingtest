@@ -11,7 +11,7 @@ public class Main {
         public static long solution(int n,int m,int[] arr) throws IOException {
 
             long start = 1;
-            long end = Arrays.stream(arr).max().getAsInt();
+            long end = arr[arr.length - 1];
             long answer =0;
 
             while (start <= end) {
