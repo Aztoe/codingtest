@@ -1,21 +1,38 @@
-class Solution {
-    public String solution(String[] cards1, String[] cards2, String[] goal) {
-        int idx1 = 0; // cards1 배열의 인덱스
-        int idx2 = 0; // cards2 배열의 인덱스
-        
-        // goal 배열 순회
-        for (String Str : goal) {
-            
-            if (idx1 < cards1.length && Str.equals(cards1[idx1])) {
-                idx1++; 
-            } else if (idx2 < cards2.length && Str.equals(cards2[idx2])) {
-                idx2++; 
-            } else {
-                return "No"; // 둘 다 포함하지 않는 경우
-            }
-        }
-        
-        return "Yes";
-    }
-}
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Solution {
+    public String solution(String[] cards1, String[] cards2, String[] goal) {
+        String answer = "";
+        Queue<String> q1 = new LinkedList<>();
+        Queue<String> q2 = new LinkedList<>();
+        Queue<String> q3 = new LinkedList<>();
+        for (int i = 0; i < cards1.length; i++) {
+            q1.add(cards1[i]);
+
+        }
+
+        for (int i = 0; i < cards2.length; i++) {
+            q2.add(cards2[i]);
+        }
+        for (int i = 0; i < goal.length ; i++) {
+            q3.add(goal[i]);
+        }
+       
+
+
+          while ((!q3.isEmpty())) {
+              String str =q3.poll();
+
+              if(str.equals(q1.peek())) q1.poll();
+              else if (str.equals(q2.peek())) { q2.poll();
+                  
+              }else return "No";
+          }
+        
+          return "Yes";
+    }
+
+
+}
