@@ -14,10 +14,10 @@ public class Solution{
             Collections.sort(list);
             if (list.size() > k) {
                 list.remove(0);
-                answer[i] = list.get(0);
-            }else {
-                answer[i] = list.get(0);
+              
             }
+                answer[i] = list.get(0);
+            
         }
         return answer;
     }
