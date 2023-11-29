@@ -20,11 +20,14 @@ public class Main {
             String password = st.nextToken();
             map.put(site, password);
         }
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             String name = st.nextToken();
-            System.out.println(map.get(name));
+            sb.append(map.get(name) +"\n");
+
         }
+        System.out.println(sb);
 
     }
 }
