@@ -7,22 +7,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> -Integer.compare(a, b));
 
         int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
+        StringBuilder result = new StringBuilder();
 
+        for (int i = 0; i < N; i++) {
             int x = Integer.parseInt(br.readLine());
 
-            if(x==0 && pq.isEmpty()) {
-                System.out.println("0");
-            } else if (x!=0) {
+            if (x == 0 && pq.isEmpty()) {
+                result.append("0\n");
+            } else if (x != 0) {
                 pq.add(x);
-            }else {
-                System.out.println(pq.poll());
+            } else {
+                result.append(pq.poll()).append("\n");
             }
         }
 
-
+        System.out.print(result.toString());
     }
 }
